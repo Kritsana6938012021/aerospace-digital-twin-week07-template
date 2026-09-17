@@ -8,11 +8,11 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: e5a1fee8-c467-49a2-b756-5621b5d12a93
 
-- Record revision: 543
+- Record revision: 690
 
 - Model hash: fnv1a-adee3cf8
 
-- Readiness: Marked incomplete or not ready; missing: prediction, verification, claim, reflection, aiUse, execution
+- Readiness: Marked incomplete or not ready; missing: verification, claim, reflection, aiUse, execution
 
 ## Supplied setup (instructor supplied)
 
@@ -62,7 +62,9 @@ Moment equation: M=Cm*q*s*c
 **Prompt:** Before running your own implementation, predict the sign of its elevator moment and the effect of halving airspeed. Explain the competing moment.
 
 **Student response:**
-_Missing — no response supplied._
+```
+Elevator moment : positive because it nose-up.Effect  of having airspeed : Moment generate from the elevator is proportional to v^2.
+```
 
 ### verification
 **Prompt:** Show one independent hand calculation with units. Compare it with your model, and explain a sign, unit, or limiting-case check.

@@ -3,7 +3,6 @@
   "readiness": {
     "ready": false,
     "missing": [
-      "prediction",
       "verification",
       "claim",
       "reflection",
@@ -13,7 +12,7 @@
   },
   "record": {
     "id": "e5a1fee8-c467-49a2-b756-5621b5d12a93",
-    "revision": "543",
+    "revision": "690",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
@@ -60,7 +59,7 @@
       "prediction": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "Elevator moment : positive because it nose-up.Effect  of having airspeed : Moment generate from the elevator is proportional to v^2."
       },
       "execution": {
         "suppliedBy": "automatic",
