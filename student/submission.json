@@ -3,7 +3,6 @@
   "readiness": {
     "ready": false,
     "missing": [
-      "physics",
       "assumptions",
       "model",
       "prediction",
@@ -15,8 +14,8 @@
     ]
   },
   "record": {
-    "id": "291e8118-9412-450e-a3ee-337b87dc7093",
-    "revision": "1",
+    "id": "e5a1fee8-c467-49a2-b756-5621b5d12a93",
+    "revision": "187",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
@@ -43,7 +42,7 @@
       "physics": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "Due to Moment=I*a , there is a force downward at the back of cg , which gives us counterclockwise rotation for the moment to make a positive nose-up  moment in front of the cg "
       },
       "assumptions": {
         "suppliedBy": "student",
