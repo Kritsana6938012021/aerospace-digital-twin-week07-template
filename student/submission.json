@@ -12,14 +12,14 @@
   },
   "record": {
     "id": "e5a1fee8-c467-49a2-b756-5621b5d12a93",
-    "revision": "690",
+    "revision": "806",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
       "version": "1.0.0"
     },
-    "modelText": "{\n  \"schemaVersion\": \"week07.student-model/v1\",\n  \"id\": \"week07-student-model\",\n  \"version\": \"1.0.0\",\n  \"slots\": [\n    {\n      \"id\": \"controls.demand\",\n      \"expressions\": [\n        {\n          \"name\": \"requiredMoment\",\n          \"expression\": \"\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    },\n    {\n      \"id\": \"controls.effectiveness\",\n      \"expressions\": [\n        {\n          \"name\": \"dynamicPressure\",\n          \"expression\": \"\",\n          \"unit\": \"Pa\"\n        },\n        {\n          \"name\": \"deltaCm\",\n          \"expression\": \"\",\n          \"unit\": \"1\"\n        },\n        {\n          \"name\": \"deltaMoment\",\n          \"expression\": \"\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    }\n  ]\n}",
-    "modelHash": "fnv1a-adee3cf8",
+    "modelText": "ENGINEERING IMPLEMENTATION BRIEF — Week07\nImplement only student-owned JSON; do not edit platform code. Do not fill missing decisions.\nquestion: Calculate required control moment, elevator moment, and the change with airspeed. Explain whether the nominal response meets +0.12 rad/s².\nsystem: Illustrative planar pitch model. Aircraft geometry, integration, force conversion and constraints are supplied.\nrepresentation: Body axes forward/right/down. Positive pitch moment nose-up. Positive Fz downward. Positive elevator trailing edge down. Reference/CG X=0 m; tail X=-3 m.\nphysics: Due to Moment=I*a , there is a force downward at the back of cg , which gives us counterclockwise rotation for the moment to make a positive nose-up  moment in front of the cg \nassumptions: For planar motion ,assumes motion is strictly 2D (pitching about the body Y-axis only)and what could invalidates is are Roll or yaw inputs.\ninputs: Iy=5000 kg·m²; target=+0.12 rad/s²; competing=-750 N-m; density=1.225 kg/m³; V=40 m/s; S=16 m²; chord=1.5 m; Cmδ=-0.8/rad; elevator=-5°. Inputs are illustrative, not calibrated.\nmodel: Demand: Iy*target - competing\nq : 0.5*density*v^2\nCm : M / q*s*c\nMoment equation: M=Cm*q*s*c\n\nprediction: Elevator moment : positive because it nose-up.Effect  of having airspeed : Moment generate from the elevator is proportional to v^2.\nverification: \nclaim: \nreflection: \naiUse: \nReturn {schemaVersion:\"week07.student-model/v1\",id,version,slots:[{id:\"controls.demand\",expressions:[{name:\"requiredMoment\",expression:\"...\",unit:\"N*m\"}]},{id:\"controls.effectiveness\",expressions:[{name:\"dynamicPressure\",expression:\"...\",unit:\"Pa\"},{name:\"deltaCm\",expression:\"...\",unit:\"1\"},{name:\"deltaMoment\",expression:\"...\",unit:\"N*m\"}]}]}.\nApproved inputs: pitchInertia (kg*m^2), requestedAcceleration (rad/s^2), competingMoment (N*m), density (kg/m^3), airspeed (m/s), referenceArea (m^2), referenceChord (m), elevatorDerivative (1/rad), elevatorAngle (rad).\nUse + - * / parentheses, constants, inputs and named intermediates only. No JavaScript. Angles arrive in radians. Check baseline, zero target, half speed, zero elevator and signs.\n",
+    "modelHash": "fnv1a-39de33c2",
     "fields": {
       "question": {
         "suppliedBy": "instructor",
@@ -95,33 +95,11 @@
     "slots": [
       {
         "id": "controls.demand",
-        "expressions": [
-          {
-            "name": "requiredMoment",
-            "expression": "",
-            "unit": "N*m"
-          }
-        ]
+        "expressions": []
       },
       {
         "id": "controls.effectiveness",
-        "expressions": [
-          {
-            "name": "dynamicPressure",
-            "expression": "",
-            "unit": "Pa"
-          },
-          {
-            "name": "deltaCm",
-            "expression": "",
-            "unit": "1"
-          },
-          {
-            "name": "deltaMoment",
-            "expression": "",
-            "unit": "N*m"
-          }
-        ]
+        "expressions": []
       }
     ]
   },
