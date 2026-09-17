@@ -3,8 +3,6 @@
   "readiness": {
     "ready": false,
     "missing": [
-      "assumptions",
-      "model",
       "prediction",
       "verification",
       "claim",
@@ -15,7 +13,7 @@
   },
   "record": {
     "id": "e5a1fee8-c467-49a2-b756-5621b5d12a93",
-    "revision": "187",
+    "revision": "543",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
@@ -47,7 +45,7 @@
       "assumptions": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "For planar motion ,assumes motion is strictly 2D (pitching about the body Y-axis only)and what could invalidates is are Roll or yaw inputs."
       },
       "inputs": {
         "suppliedBy": "instructor",
@@ -57,7 +55,7 @@
       "model": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "Demand: Iy*target - competing\nq : 0.5*density*v^2\nCm : M / q*s*c\nMoment equation: M=Cm*q*s*c\n"
       },
       "prediction": {
         "suppliedBy": "student",
