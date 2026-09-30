@@ -8,11 +8,11 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: 93efd672-de68-47f3-85da-61eda1384058
 
-- Record revision: 50
+- Record revision: 121
 
 - Model hash: fnv1a-76d8587a
 
-- Readiness: Marked incomplete or not ready; missing: claim, reflection, aiUse
+- Readiness: Marked ready by the submission.
 
 ## Supplied setup (instructor supplied)
 
@@ -67,26 +67,32 @@ The elevator moment will have a positive sign because multiplying a negative con
 
 **Student response:**
 ```
-The elevator moment is M = 980 Pa *16m^2 * 1.5 m *0.069813=+1642.01N, which matches the model's output of 1642.01N. As a sign check, a negative elevator angle produces a positive nose-up pitching moment
+The elevator moment is M = 980 Pa *16m^2 * 1.5 m *0.069813=+1642.01N, which matches the model's output of 1642.01N. As a sign check, a negative elevator angle produces a positive nose-up pitching moment.
 ```
 
 ### claim
 **Prompt:** What do your computed results support at the stated condition? Include a limitation.
 
 **Student response:**
-_Missing — no response supplied._
+```
+At the baseline flight condition, the computed elevator control moment of +1642.01 N successfully overcomes the -750N competing moment and exceeds the 1350N required demand, confirming that a nominal -5 deflection meets the target acceleration of +0.12rad^2 However, a key limitation is that this result assumes constant linear control effectiveness without accounting for flow separation or control surface stall. 
+```
 
 ### reflection
 **Prompt:** What additional evidence or missing physics would you investigate next?
 
 **Student response:**
-_Missing — no response supplied._
+```
+Future investigations should incorporate pitch damping derivatives  to account for resistance moments as pitch rate over time. Additionally, collecting wind tunnel data across varying angles of attack and testing non-linear control effectiveness at high deflection angles would provide crucial physical evidence.
+```
 
 ### AI use
 **Prompt:** Identify the AI tool and how you used it, what you changed, and how you independently checked the result. State “No AI used” if applicable.
 
 **Student response:**
-_Missing — no response supplied._
+```
+Google Gemini was used to format expressions into structured JSON and structure analytical responses. 
+```
 
 ## Equations and model source
 

@@ -1,16 +1,12 @@
 {
   "schemaVersion": "week07.submission/v1",
   "readiness": {
-    "ready": false,
-    "missing": [
-      "claim",
-      "reflection",
-      "aiUse"
-    ]
+    "ready": true,
+    "missing": []
   },
   "record": {
     "id": "93efd672-de68-47f3-85da-61eda1384058",
-    "revision": "50",
+    "revision": "121",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
@@ -67,22 +63,22 @@
       "verification": {
         "suppliedBy": "student",
         "locked": false,
-        "text": "The elevator moment is M = 980 Pa *16m^2 * 1.5 m *0.069813=+1642.01N, which matches the model's output of 1642.01N. As a sign check, a negative elevator angle produces a positive nose-up pitching moment"
+        "text": "The elevator moment is M = 980 Pa *16m^2 * 1.5 m *0.069813=+1642.01N, which matches the model's output of 1642.01N. As a sign check, a negative elevator angle produces a positive nose-up pitching moment."
       },
       "claim": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "At the baseline flight condition, the computed elevator control moment of +1642.01 N successfully overcomes the -750N competing moment and exceeds the 1350N required demand, confirming that a nominal -5 deflection meets the target acceleration of +0.12rad^2 However, a key limitation is that this result assumes constant linear control effectiveness without accounting for flow separation or control surface stall. "
       },
       "reflection": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "Future investigations should incorporate pitch damping derivatives  to account for resistance moments as pitch rate over time. Additionally, collecting wind tunnel data across varying angles of attack and testing non-linear control effectiveness at high deflection angles would provide crucial physical evidence."
       },
       "aiUse": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "Google Gemini was used to format expressions into structured JSON and structure analytical responses. "
       }
     }
   },
