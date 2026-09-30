@@ -8,11 +8,11 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: 93efd672-de68-47f3-85da-61eda1384058
 
-- Record revision: 2
+- Record revision: 43
 
 - Model hash: fnv1a-adee3cf8
 
-- Readiness: Marked incomplete or not ready; missing: assumptions, model, prediction, verification, claim, reflection, aiUse, execution
+- Readiness: Marked incomplete or not ready; missing: prediction, verification, claim, reflection, aiUse, execution
 
 ## Supplied setup (instructor supplied)
 
@@ -42,13 +42,17 @@ Due to Moment=I*a , there is a force downward at the back of cg , which gives us
 **Prompt:** Explain one supplied assumption and what could invalidate it: planar motion, fixed reference, local linear effectiveness, no trim or damping.
 
 **Student response:**
-_Missing — no response supplied._
+```
+The local linear effectiveness assumption states that elevator deflection produces a proportional pitching moment based on a constant effectiveness coefficient. This assumption is invalidated at large control surface angles where flow separation or stall occurs.
+```
 
 ### model
 **Prompt:** Write your demand, dynamic-pressure, coefficient and moment equations. Identify which quantities are supplied and which are unknown.
 
 **Student response:**
-_Missing — no response supplied._
+```
+Demand: control moment plus competing moment equals inertia times target acceleration.The dynamic pressure is defined as q=0.5 pV^2 .Coefficient  is ΔCm = Cmδ × δe.,where air density, velocity, reference area, chord length, control coefficient, deflection angle, inertia, and competing moments are supplied values, while dynamic pressure, control moment increment, and target pitch acceleration are the unknown variables.
+```
 
 ### prediction
 **Prompt:** Before running your own implementation, predict the sign of its elevator moment and the effect of halving airspeed. Explain the competing moment.

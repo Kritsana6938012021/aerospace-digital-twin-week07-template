@@ -3,8 +3,6 @@
   "readiness": {
     "ready": false,
     "missing": [
-      "assumptions",
-      "model",
       "prediction",
       "verification",
       "claim",
@@ -15,7 +13,7 @@
   },
   "record": {
     "id": "93efd672-de68-47f3-85da-61eda1384058",
-    "revision": "2",
+    "revision": "43",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
@@ -47,7 +45,7 @@
       "assumptions": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "The local linear effectiveness assumption states that elevator deflection produces a proportional pitching moment based on a constant effectiveness coefficient. This assumption is invalidated at large control surface angles where flow separation or stall occurs."
       },
       "inputs": {
         "suppliedBy": "instructor",
@@ -57,7 +55,7 @@
       "model": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "Demand: control moment plus competing moment equals inertia times target acceleration.The dynamic pressure is defined as q=0.5 pV^2 .Coefficient  is ΔCm = Cmδ × δe.,where air density, velocity, reference area, chord length, control coefficient, deflection angle, inertia, and competing moments are supplied values, while dynamic pressure, control moment increment, and target pitch acceleration are the unknown variables."
       },
       "prediction": {
         "suppliedBy": "student",
