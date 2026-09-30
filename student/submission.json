@@ -3,7 +3,6 @@
   "readiness": {
     "ready": false,
     "missing": [
-      "prediction",
       "verification",
       "claim",
       "reflection",
@@ -13,7 +12,7 @@
   },
   "record": {
     "id": "93efd672-de68-47f3-85da-61eda1384058",
-    "revision": "46",
+    "revision": "47",
     "model": {
       "moduleId": "controls",
       "modelId": "week07-student-model",
@@ -60,7 +59,7 @@
       "prediction": {
         "suppliedBy": "student",
         "locked": false,
-        "text": ""
+        "text": "The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration."
       },
       "execution": {
         "suppliedBy": "automatic",

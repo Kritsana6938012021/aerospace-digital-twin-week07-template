@@ -8,11 +8,11 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: 93efd672-de68-47f3-85da-61eda1384058
 
-- Record revision: 46
+- Record revision: 47
 
 - Model hash: fnv1a-adee3cf8
 
-- Readiness: Marked incomplete or not ready; missing: prediction, verification, claim, reflection, aiUse, execution
+- Readiness: Marked incomplete or not ready; missing: verification, claim, reflection, aiUse, execution
 
 ## Supplied setup (instructor supplied)
 
@@ -58,7 +58,9 @@ Demand: control moment plus competing moment equals inertia times target acceler
 **Prompt:** Before running your own implementation, predict the sign of its elevator moment and the effect of halving airspeed. Explain the competing moment.
 
 **Student response:**
-_Missing — no response supplied._
+```
+The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration.
+```
 
 ### verification
 **Prompt:** Show one independent hand calculation with units. Compare it with your model, and explain a sign, unit, or limiting-case check.
