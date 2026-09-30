@@ -325,11 +325,629 @@
           }
         }
       }
+    },
+    {
+      "id": "979e0906-56c9-408d-91ba-816c83d6b711",
+      "createdAt": "2026-09-30T15:41:54.790Z",
+      "record": {
+        "id": "93efd672-de68-47f3-85da-61eda1384058",
+        "revision": "121",
+        "model": {
+          "moduleId": "controls",
+          "modelId": "week07-student-model",
+          "version": "1.0.0"
+        },
+        "modelText": "{\n  \"schemaVersion\": \"week07.student-model/v1\",\n  \"id\": \"week07-student-model\",\n  \"version\": \"1.0.0\",\n  \"slots\": [\n    {\n      \"id\": \"controls.demand\",\n      \"expressions\": [\n        {\n          \"name\": \"requiredMoment\",\n          \"expression\": \"pitchInertia * requestedAcceleration - competingMoment\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    },\n    {\n      \"id\": \"controls.effectiveness\",\n      \"expressions\": [\n        {\n          \"name\": \"dynamicPressure\",\n          \"expression\": \"0.5 * density * airspeed * airspeed\",\n          \"unit\": \"Pa\"\n        },\n        {\n          \"name\": \"deltaCm\",\n          \"expression\": \"elevatorDerivative * elevatorAngle\",\n          \"unit\": \"1\"\n        },\n        {\n          \"name\": \"deltaMoment\",\n          \"expression\": \"0.5 * density * airspeed * airspeed * referenceArea * referenceChord * elevatorDerivative * elevatorAngle\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    }\n  ]\n}",
+        "modelHash": "fnv1a-76d8587a",
+        "fields": {
+          "question": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Calculate required control moment, elevator moment, and the change with airspeed. Explain whether the nominal response meets +0.12 rad/s²."
+          },
+          "system": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Illustrative planar pitch model. Aircraft geometry, integration, force conversion and constraints are supplied."
+          },
+          "representation": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Body axes forward/right/down. Positive pitch moment nose-up. Positive Fz downward. Positive elevator trailing edge down. Reference/CG X=0 m; tail X=-3 m."
+          },
+          "physics": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Due to Moment=I*a , there is a force downward at the back of cg , which gives us counterclockwise rotation for the moment to make a positive nose-up  moment in front of the cg "
+          },
+          "assumptions": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "The local linear effectiveness assumption states that elevator deflection produces a proportional pitching moment based on a constant effectiveness coefficient. This assumption is invalidated at large control surface angles where flow separation or stall occurs."
+          },
+          "inputs": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Iy=5000 kg·m²; target=+0.12 rad/s²; competing=-750 N-m; density=1.225 kg/m³; V=40 m/s; S=16 m²; chord=1.5 m; Cmδ=-0.8/rad; elevator=-5°. Inputs are illustrative, not calibrated."
+          },
+          "model": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Demand: control moment plus competing moment equals inertia times target acceleration.The dynamic pressure is defined as q=0.5 pV^2 .Coefficient  is ΔCm = Cmδ × δe.The instructor supplies the aircraft geometry, flight airspeed, air density, pitch inertia, control derivative, nominal elevator deflection, target pitch acceleration, and competing moments.The dynamic pressure, total required control moment demand, actual elevator moment produced, moment variation with airspeed, and confirmation of whether the target acceleration is met remain unknown and must be calculated."
+          },
+          "prediction": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration."
+          },
+          "execution": {
+            "suppliedBy": "automatic",
+            "locked": false,
+            "text": ""
+          },
+          "verification": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "The elevator moment is M = 980 Pa *16m^2 * 1.5 m *0.069813=+1642.01N, which matches the model's output of 1642.01N. As a sign check, a negative elevator angle produces a positive nose-up pitching moment."
+          },
+          "claim": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "At the baseline flight condition, the computed elevator control moment of +1642.01 N successfully overcomes the -750N competing moment and exceeds the 1350N required demand, confirming that a nominal -5 deflection meets the target acceleration of +0.12rad^2 However, a key limitation is that this result assumes constant linear control effectiveness without accounting for flow separation or control surface stall. "
+          },
+          "reflection": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Future investigations should incorporate pitch damping derivatives  to account for resistance moments as pitch rate over time. Additionally, collecting wind tunnel data across varying angles of attack and testing non-linear control effectiveness at high deflection angles would provide crucial physical evidence."
+          },
+          "aiUse": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Google Gemini was used to format expressions into structured JSON and structure analytical responses. "
+          }
+        }
+      },
+      "prediction": "The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration.",
+      "artifact": {
+        "schemaVersion": "week07.student-model/v1",
+        "id": "week07-student-model",
+        "version": "1.0.0",
+        "slots": [
+          {
+            "id": "controls.demand",
+            "expressions": [
+              {
+                "name": "requiredMoment",
+                "expression": "pitchInertia * requestedAcceleration - competingMoment",
+                "unit": "N*m"
+              }
+            ]
+          },
+          {
+            "id": "controls.effectiveness",
+            "expressions": [
+              {
+                "name": "dynamicPressure",
+                "expression": "0.5 * density * airspeed * airspeed",
+                "unit": "Pa"
+              },
+              {
+                "name": "deltaCm",
+                "expression": "elevatorDerivative * elevatorAngle",
+                "unit": "1"
+              },
+              {
+                "name": "deltaMoment",
+                "expression": "0.5 * density * airspeed * airspeed * referenceArea * referenceChord * elevatorDerivative * elevatorAngle",
+                "unit": "N*m"
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": {
+        "pitchInertia": {
+          "status": "known",
+          "value": 5000,
+          "unit": "kg*m^2",
+          "provenanceId": "c2-example-source"
+        },
+        "requestedAcceleration": {
+          "status": "known",
+          "value": 0,
+          "unit": "rad/s^2",
+          "provenanceId": "f7a85e9e-d5bf-400a-bec8-465b6a244b89"
+        },
+        "competingMoment": {
+          "status": "known",
+          "value": -750,
+          "unit": "N*m",
+          "provenanceId": "c2-example-source"
+        },
+        "density": {
+          "status": "known",
+          "value": 1.225,
+          "unit": "kg/m^3",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "airspeed": {
+          "status": "known",
+          "value": 40,
+          "unit": "m/s",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "referenceArea": {
+          "status": "known",
+          "value": 16,
+          "unit": "m^2",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "referenceChord": {
+          "status": "known",
+          "value": 1.5,
+          "unit": "m",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "elevatorDerivative": {
+          "status": "known",
+          "value": -0.8,
+          "unit": "1/rad",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "elevatorAngle": {
+          "status": "known",
+          "value": -0.08726646259971647,
+          "unit": "rad",
+          "provenanceId": "c3-illustrative-source"
+        }
+      },
+      "result": {
+        "controls.demand": {
+          "valid": true,
+          "errors": [],
+          "values": {
+            "requiredMoment": {
+              "value": 750,
+              "unit": "N*m"
+            }
+          }
+        },
+        "controls.effectiveness": {
+          "valid": true,
+          "errors": [],
+          "values": {
+            "dynamicPressure": {
+              "value": 980,
+              "unit": "Pa"
+            },
+            "deltaCm": {
+              "value": 0.06981317007977318,
+              "unit": "1"
+            },
+            "deltaMoment": {
+              "value": 1642.0057602762652,
+              "unit": "N*m"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "8ad7de69-87bf-480f-9058-d1b015985f32",
+      "createdAt": "2026-09-30T15:42:00.800Z",
+      "record": {
+        "id": "93efd672-de68-47f3-85da-61eda1384058",
+        "revision": "121",
+        "model": {
+          "moduleId": "controls",
+          "modelId": "week07-student-model",
+          "version": "1.0.0"
+        },
+        "modelText": "{\n  \"schemaVersion\": \"week07.student-model/v1\",\n  \"id\": \"week07-student-model\",\n  \"version\": \"1.0.0\",\n  \"slots\": [\n    {\n      \"id\": \"controls.demand\",\n      \"expressions\": [\n        {\n          \"name\": \"requiredMoment\",\n          \"expression\": \"pitchInertia * requestedAcceleration - competingMoment\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    },\n    {\n      \"id\": \"controls.effectiveness\",\n      \"expressions\": [\n        {\n          \"name\": \"dynamicPressure\",\n          \"expression\": \"0.5 * density * airspeed * airspeed\",\n          \"unit\": \"Pa\"\n        },\n        {\n          \"name\": \"deltaCm\",\n          \"expression\": \"elevatorDerivative * elevatorAngle\",\n          \"unit\": \"1\"\n        },\n        {\n          \"name\": \"deltaMoment\",\n          \"expression\": \"0.5 * density * airspeed * airspeed * referenceArea * referenceChord * elevatorDerivative * elevatorAngle\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    }\n  ]\n}",
+        "modelHash": "fnv1a-76d8587a",
+        "fields": {
+          "question": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Calculate required control moment, elevator moment, and the change with airspeed. Explain whether the nominal response meets +0.12 rad/s²."
+          },
+          "system": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Illustrative planar pitch model. Aircraft geometry, integration, force conversion and constraints are supplied."
+          },
+          "representation": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Body axes forward/right/down. Positive pitch moment nose-up. Positive Fz downward. Positive elevator trailing edge down. Reference/CG X=0 m; tail X=-3 m."
+          },
+          "physics": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Due to Moment=I*a , there is a force downward at the back of cg , which gives us counterclockwise rotation for the moment to make a positive nose-up  moment in front of the cg "
+          },
+          "assumptions": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "The local linear effectiveness assumption states that elevator deflection produces a proportional pitching moment based on a constant effectiveness coefficient. This assumption is invalidated at large control surface angles where flow separation or stall occurs."
+          },
+          "inputs": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Iy=5000 kg·m²; target=+0.12 rad/s²; competing=-750 N-m; density=1.225 kg/m³; V=40 m/s; S=16 m²; chord=1.5 m; Cmδ=-0.8/rad; elevator=-5°. Inputs are illustrative, not calibrated."
+          },
+          "model": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Demand: control moment plus competing moment equals inertia times target acceleration.The dynamic pressure is defined as q=0.5 pV^2 .Coefficient  is ΔCm = Cmδ × δe.The instructor supplies the aircraft geometry, flight airspeed, air density, pitch inertia, control derivative, nominal elevator deflection, target pitch acceleration, and competing moments.The dynamic pressure, total required control moment demand, actual elevator moment produced, moment variation with airspeed, and confirmation of whether the target acceleration is met remain unknown and must be calculated."
+          },
+          "prediction": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration."
+          },
+          "execution": {
+            "suppliedBy": "automatic",
+            "locked": false,
+            "text": ""
+          },
+          "verification": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "The elevator moment is M = 980 Pa *16m^2 * 1.5 m *0.069813=+1642.01N, which matches the model's output of 1642.01N. As a sign check, a negative elevator angle produces a positive nose-up pitching moment."
+          },
+          "claim": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "At the baseline flight condition, the computed elevator control moment of +1642.01 N successfully overcomes the -750N competing moment and exceeds the 1350N required demand, confirming that a nominal -5 deflection meets the target acceleration of +0.12rad^2 However, a key limitation is that this result assumes constant linear control effectiveness without accounting for flow separation or control surface stall. "
+          },
+          "reflection": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Future investigations should incorporate pitch damping derivatives  to account for resistance moments as pitch rate over time. Additionally, collecting wind tunnel data across varying angles of attack and testing non-linear control effectiveness at high deflection angles would provide crucial physical evidence."
+          },
+          "aiUse": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Google Gemini was used to format expressions into structured JSON and structure analytical responses. "
+          }
+        }
+      },
+      "prediction": "The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration.",
+      "artifact": {
+        "schemaVersion": "week07.student-model/v1",
+        "id": "week07-student-model",
+        "version": "1.0.0",
+        "slots": [
+          {
+            "id": "controls.demand",
+            "expressions": [
+              {
+                "name": "requiredMoment",
+                "expression": "pitchInertia * requestedAcceleration - competingMoment",
+                "unit": "N*m"
+              }
+            ]
+          },
+          {
+            "id": "controls.effectiveness",
+            "expressions": [
+              {
+                "name": "dynamicPressure",
+                "expression": "0.5 * density * airspeed * airspeed",
+                "unit": "Pa"
+              },
+              {
+                "name": "deltaCm",
+                "expression": "elevatorDerivative * elevatorAngle",
+                "unit": "1"
+              },
+              {
+                "name": "deltaMoment",
+                "expression": "0.5 * density * airspeed * airspeed * referenceArea * referenceChord * elevatorDerivative * elevatorAngle",
+                "unit": "N*m"
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": {
+        "pitchInertia": {
+          "status": "known",
+          "value": 5000,
+          "unit": "kg*m^2",
+          "provenanceId": "c2-example-source"
+        },
+        "requestedAcceleration": {
+          "status": "known",
+          "value": 0.12,
+          "unit": "rad/s^2",
+          "provenanceId": "c2-example-source"
+        },
+        "competingMoment": {
+          "status": "known",
+          "value": -750,
+          "unit": "N*m",
+          "provenanceId": "c2-example-source"
+        },
+        "density": {
+          "status": "known",
+          "value": 1.225,
+          "unit": "kg/m^3",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "airspeed": {
+          "status": "known",
+          "value": 40,
+          "unit": "m/s",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "referenceArea": {
+          "status": "known",
+          "value": 16,
+          "unit": "m^2",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "referenceChord": {
+          "status": "known",
+          "value": 1.5,
+          "unit": "m",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "elevatorDerivative": {
+          "status": "known",
+          "value": -0.8,
+          "unit": "1/rad",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "elevatorAngle": {
+          "status": "known",
+          "value": 0,
+          "unit": "rad",
+          "provenanceId": "76933288-6ad1-4d9d-8741-92bc99e0e0d6"
+        }
+      },
+      "result": {
+        "controls.demand": {
+          "valid": true,
+          "errors": [],
+          "values": {
+            "requiredMoment": {
+              "value": 1350,
+              "unit": "N*m"
+            }
+          }
+        },
+        "controls.effectiveness": {
+          "valid": true,
+          "errors": [],
+          "values": {
+            "dynamicPressure": {
+              "value": 980,
+              "unit": "Pa"
+            },
+            "deltaCm": {
+              "value": 0,
+              "unit": "1"
+            },
+            "deltaMoment": {
+              "value": 0,
+              "unit": "N*m"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "8fdb43d4-ee2b-42b4-a344-073940998f6a",
+      "createdAt": "2026-09-30T15:42:19.247Z",
+      "record": {
+        "id": "93efd672-de68-47f3-85da-61eda1384058",
+        "revision": "121",
+        "model": {
+          "moduleId": "controls",
+          "modelId": "week07-student-model",
+          "version": "1.0.0"
+        },
+        "modelText": "{\n  \"schemaVersion\": \"week07.student-model/v1\",\n  \"id\": \"week07-student-model\",\n  \"version\": \"1.0.0\",\n  \"slots\": [\n    {\n      \"id\": \"controls.demand\",\n      \"expressions\": [\n        {\n          \"name\": \"requiredMoment\",\n          \"expression\": \"pitchInertia * requestedAcceleration - competingMoment\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    },\n    {\n      \"id\": \"controls.effectiveness\",\n      \"expressions\": [\n        {\n          \"name\": \"dynamicPressure\",\n          \"expression\": \"0.5 * density * airspeed * airspeed\",\n          \"unit\": \"Pa\"\n        },\n        {\n          \"name\": \"deltaCm\",\n          \"expression\": \"elevatorDerivative * elevatorAngle\",\n          \"unit\": \"1\"\n        },\n        {\n          \"name\": \"deltaMoment\",\n          \"expression\": \"0.5 * density * airspeed * airspeed * referenceArea * referenceChord * elevatorDerivative * elevatorAngle\",\n          \"unit\": \"N*m\"\n        }\n      ]\n    }\n  ]\n}",
+        "modelHash": "fnv1a-76d8587a",
+        "fields": {
+          "question": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Calculate required control moment, elevator moment, and the change with airspeed. Explain whether the nominal response meets +0.12 rad/s²."
+          },
+          "system": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Illustrative planar pitch model. Aircraft geometry, integration, force conversion and constraints are supplied."
+          },
+          "representation": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Body axes forward/right/down. Positive pitch moment nose-up. Positive Fz downward. Positive elevator trailing edge down. Reference/CG X=0 m; tail X=-3 m."
+          },
+          "physics": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Due to Moment=I*a , there is a force downward at the back of cg , which gives us counterclockwise rotation for the moment to make a positive nose-up  moment in front of the cg "
+          },
+          "assumptions": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "The local linear effectiveness assumption states that elevator deflection produces a proportional pitching moment based on a constant effectiveness coefficient. This assumption is invalidated at large control surface angles where flow separation or stall occurs."
+          },
+          "inputs": {
+            "suppliedBy": "instructor",
+            "locked": true,
+            "text": "Iy=5000 kg·m²; target=+0.12 rad/s²; competing=-750 N-m; density=1.225 kg/m³; V=40 m/s; S=16 m²; chord=1.5 m; Cmδ=-0.8/rad; elevator=-5°. Inputs are illustrative, not calibrated."
+          },
+          "model": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Demand: control moment plus competing moment equals inertia times target acceleration.The dynamic pressure is defined as q=0.5 pV^2 .Coefficient  is ΔCm = Cmδ × δe.The instructor supplies the aircraft geometry, flight airspeed, air density, pitch inertia, control derivative, nominal elevator deflection, target pitch acceleration, and competing moments.The dynamic pressure, total required control moment demand, actual elevator moment produced, moment variation with airspeed, and confirmation of whether the target acceleration is met remain unknown and must be calculated."
+          },
+          "prediction": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration."
+          },
+          "execution": {
+            "suppliedBy": "automatic",
+            "locked": false,
+            "text": ""
+          },
+          "verification": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "The elevator moment is M = 980 Pa *16m^2 * 1.5 m *0.069813=+1642.01N, which matches the model's output of 1642.01N. As a sign check, a negative elevator angle produces a positive nose-up pitching moment."
+          },
+          "claim": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "At the baseline flight condition, the computed elevator control moment of +1642.01 N successfully overcomes the -750N competing moment and exceeds the 1350N required demand, confirming that a nominal -5 deflection meets the target acceleration of +0.12rad^2 However, a key limitation is that this result assumes constant linear control effectiveness without accounting for flow separation or control surface stall. "
+          },
+          "reflection": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Future investigations should incorporate pitch damping derivatives  to account for resistance moments as pitch rate over time. Additionally, collecting wind tunnel data across varying angles of attack and testing non-linear control effectiveness at high deflection angles would provide crucial physical evidence."
+          },
+          "aiUse": {
+            "suppliedBy": "student",
+            "locked": false,
+            "text": "Google Gemini was used to format expressions into structured JSON and structure analytical responses. "
+          }
+        }
+      },
+      "prediction": "The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration.",
+      "artifact": {
+        "schemaVersion": "week07.student-model/v1",
+        "id": "week07-student-model",
+        "version": "1.0.0",
+        "slots": [
+          {
+            "id": "controls.demand",
+            "expressions": [
+              {
+                "name": "requiredMoment",
+                "expression": "pitchInertia * requestedAcceleration - competingMoment",
+                "unit": "N*m"
+              }
+            ]
+          },
+          {
+            "id": "controls.effectiveness",
+            "expressions": [
+              {
+                "name": "dynamicPressure",
+                "expression": "0.5 * density * airspeed * airspeed",
+                "unit": "Pa"
+              },
+              {
+                "name": "deltaCm",
+                "expression": "elevatorDerivative * elevatorAngle",
+                "unit": "1"
+              },
+              {
+                "name": "deltaMoment",
+                "expression": "0.5 * density * airspeed * airspeed * referenceArea * referenceChord * elevatorDerivative * elevatorAngle",
+                "unit": "N*m"
+              }
+            ]
+          }
+        ]
+      },
+      "inputs": {
+        "pitchInertia": {
+          "status": "known",
+          "value": 5000,
+          "unit": "kg*m^2",
+          "provenanceId": "c2-example-source"
+        },
+        "requestedAcceleration": {
+          "status": "known",
+          "value": 0.12,
+          "unit": "rad/s^2",
+          "provenanceId": "c2-example-source"
+        },
+        "competingMoment": {
+          "status": "known",
+          "value": -750,
+          "unit": "N*m",
+          "provenanceId": "c2-example-source"
+        },
+        "density": {
+          "status": "known",
+          "value": 1.225,
+          "unit": "kg/m^3",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "airspeed": {
+          "status": "known",
+          "value": 40,
+          "unit": "m/s",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "referenceArea": {
+          "status": "known",
+          "value": 16,
+          "unit": "m^2",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "referenceChord": {
+          "status": "known",
+          "value": 1.5,
+          "unit": "m",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "elevatorDerivative": {
+          "status": "known",
+          "value": -0.8,
+          "unit": "1/rad",
+          "provenanceId": "c3-illustrative-source"
+        },
+        "elevatorAngle": {
+          "status": "known",
+          "value": 0,
+          "unit": "rad",
+          "provenanceId": "7fc6168c-a3a9-473e-a6c1-df21a842f683"
+        }
+      },
+      "result": {
+        "controls.demand": {
+          "valid": true,
+          "errors": [],
+          "values": {
+            "requiredMoment": {
+              "value": 1350,
+              "unit": "N*m"
+            }
+          }
+        },
+        "controls.effectiveness": {
+          "valid": true,
+          "errors": [],
+          "values": {
+            "dynamicPressure": {
+              "value": 980,
+              "unit": "Pa"
+            },
+            "deltaCm": {
+              "value": 0,
+              "unit": "1"
+            },
+            "deltaMoment": {
+              "value": 0,
+              "unit": "N*m"
+            }
+          }
+        }
+      }
     }
   ],
   "verification": {
     "modelHash": "fnv1a-76d8587a",
-    "checkedAt": "2026-09-30T15:22:09.473Z",
+    "checkedAt": "2026-09-30T15:41:51.471Z",
     "passed": true,
     "detail": "Student artifact passed demand, baseline elevator, quadratic speed, and neutral-deflection checks."
   }

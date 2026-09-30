@@ -142,7 +142,7 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
 
 Recorded as passed for the submitted model hash.
 
-- Checked at: 2026-09-30T15:22:09.473Z
+- Checked at: 2026-09-30T15:41:51.471Z
 - Detail: Student artifact passed demand, baseline elevator, quadratic speed, and neutral-deflection checks.
 
 ## Recorded model runs
@@ -159,6 +159,45 @@ The elevator moment will have a positive sign because multiplying a negative con
 ```
 - Result status: recorded values shown below
 - Values: `requiredMoment=1350 N*m`; `dynamicPressure=980 Pa`; `deltaCm=0.06981317007977318 1`; `deltaMoment=1642.0057602762652 N*m`
+
+### Run 2
+- Recorded: 2026-09-30T15:41:54.790Z
+- Run ID: 979e0906-56c9-408d-91ba-816c83d6b711
+- Record revision: 121
+- Model hash recorded with run: fnv1a-76d8587a
+- Prediction recorded with run:
+
+```
+The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration.
+```
+- Result status: recorded values shown below
+- Values: `requiredMoment=750 N*m`; `dynamicPressure=980 Pa`; `deltaCm=0.06981317007977318 1`; `deltaMoment=1642.0057602762652 N*m`
+
+### Run 3
+- Recorded: 2026-09-30T15:42:00.800Z
+- Run ID: 8ad7de69-87bf-480f-9058-d1b015985f32
+- Record revision: 121
+- Model hash recorded with run: fnv1a-76d8587a
+- Prediction recorded with run:
+
+```
+The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration.
+```
+- Result status: recorded values shown below
+- Values: `requiredMoment=1350 N*m`; `dynamicPressure=980 Pa`; `deltaCm=0 1`; `deltaMoment=0 N*m`
+
+### Run 4
+- Recorded: 2026-09-30T15:42:19.247Z
+- Run ID: 8fdb43d4-ee2b-42b4-a344-073940998f6a
+- Record revision: 121
+- Model hash recorded with run: fnv1a-76d8587a
+- Prediction recorded with run:
+
+```
+The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration.
+```
+- Result status: recorded values shown below
+- Values: `requiredMoment=1350 N*m`; `dynamicPressure=980 Pa`; `deltaCm=0 1`; `deltaMoment=0 N*m`
 
 ## Submission instructions
 
