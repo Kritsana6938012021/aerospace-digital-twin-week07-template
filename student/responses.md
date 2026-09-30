@@ -8,11 +8,11 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: 93efd672-de68-47f3-85da-61eda1384058
 
-- Record revision: 47
+- Record revision: 50
 
-- Model hash: fnv1a-adee3cf8
+- Model hash: fnv1a-76d8587a
 
-- Readiness: Marked incomplete or not ready; missing: verification, claim, reflection, aiUse, execution
+- Readiness: Marked incomplete or not ready; missing: claim, reflection, aiUse
 
 ## Supplied setup (instructor supplied)
 
@@ -66,7 +66,9 @@ The elevator moment will have a positive sign because multiplying a negative con
 **Prompt:** Show one independent hand calculation with units. Compare it with your model, and explain a sign, unit, or limiting-case check.
 
 **Student response:**
-_Missing — no response supplied._
+```
+The elevator moment is M = 980 Pa *16m^2 * 1.5 m *0.069813=+1642.01N, which matches the model's output of 1642.01N. As a sign check, a negative elevator angle produces a positive nose-up pitching moment
+```
 
 ### claim
 **Prompt:** What do your computed results support at the stated condition? Include a limitation.
@@ -101,7 +103,7 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "requiredMoment",
-          "expression": "",
+          "expression": "pitchInertia * requestedAcceleration - competingMoment",
           "unit": "N*m"
         }
       ]
@@ -111,17 +113,17 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "dynamicPressure",
-          "expression": "",
+          "expression": "0.5 * density * airspeed * airspeed",
           "unit": "Pa"
         },
         {
           "name": "deltaCm",
-          "expression": "",
+          "expression": "elevatorDerivative * elevatorAngle",
           "unit": "1"
         },
         {
           "name": "deltaMoment",
-          "expression": "",
+          "expression": "0.5 * density * airspeed * airspeed * referenceArea * referenceChord * elevatorDerivative * elevatorAngle",
           "unit": "N*m"
         }
       ]
@@ -132,11 +134,25 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
 
 ## Recorded verification status
 
-No verification record was supplied.
+Recorded as passed for the submitted model hash.
+
+- Checked at: 2026-09-30T15:22:09.473Z
+- Detail: Student artifact passed demand, baseline elevator, quadratic speed, and neutral-deflection checks.
 
 ## Recorded model runs
 
-_Missing — no model runs supplied._
+### Run 1
+- Recorded: 2026-09-30T15:22:12.717Z
+- Run ID: 26bea85a-5a2d-490a-bc46-9f39812c580a
+- Record revision: 49
+- Model hash recorded with run: fnv1a-76d8587a
+- Prediction recorded with run:
+
+```
+The elevator moment will have a positive sign because multiplying a negative control effectiveness coefficient by a negative elevator deflection   creating a nose-up rotation. Halving the airspeed reduces dynamic pressure  one-quarter of its original value , which quarters the elevator control moment  and severely degrades control effectiveness. The competing moment represents an external constant disturbance that acts on the aircraft, which the elevator control moment must overcome to achieve the desired pitch acceleration.
+```
+- Result status: recorded values shown below
+- Values: `requiredMoment=1350 N*m`; `dynamicPressure=980 Pa`; `deltaCm=0.06981317007977318 1`; `deltaMoment=1642.0057602762652 N*m`
 
 ## Submission instructions
 
