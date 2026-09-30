@@ -8,7 +8,7 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Record ID: 93efd672-de68-47f3-85da-61eda1384058
 
-- Record revision: 43
+- Record revision: 46
 
 - Model hash: fnv1a-adee3cf8
 
@@ -51,7 +51,7 @@ The local linear effectiveness assumption states that elevator deflection produc
 
 **Student response:**
 ```
-Demand: control moment plus competing moment equals inertia times target acceleration.The dynamic pressure is defined as q=0.5 pV^2 .Coefficient  is ΔCm = Cmδ × δe.,where air density, velocity, reference area, chord length, control coefficient, deflection angle, inertia, and competing moments are supplied values, while dynamic pressure, control moment increment, and target pitch acceleration are the unknown variables.
+Demand: control moment plus competing moment equals inertia times target acceleration.The dynamic pressure is defined as q=0.5 pV^2 .Coefficient  is ΔCm = Cmδ × δe.The instructor supplies the aircraft geometry, flight airspeed, air density, pitch inertia, control derivative, nominal elevator deflection, target pitch acceleration, and competing moments.The dynamic pressure, total required control moment demand, actual elevator moment produced, moment variation with airspeed, and confirmation of whether the target acceleration is met remain unknown and must be calculated.
 ```
 
 ### prediction
