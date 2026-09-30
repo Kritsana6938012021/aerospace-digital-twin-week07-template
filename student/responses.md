@@ -6,13 +6,13 @@ Answers and recorded model results from `submission.json`. This document does no
 
 - Schema: week07.submission/v1
 
-- Record ID: e5a1fee8-c467-49a2-b756-5621b5d12a93
+- Record ID: 93efd672-de68-47f3-85da-61eda1384058
 
-- Record revision: 810
+- Record revision: 2
 
-- Model hash: fnv1a-997b93ba
+- Model hash: fnv1a-adee3cf8
 
-- Readiness: Marked incomplete or not ready; missing: verification, claim, reflection, aiUse
+- Readiness: Marked incomplete or not ready; missing: assumptions, model, prediction, verification, claim, reflection, aiUse, execution
 
 ## Supplied setup (instructor supplied)
 
@@ -42,29 +42,19 @@ Due to Moment=I*a , there is a force downward at the back of cg , which gives us
 **Prompt:** Explain one supplied assumption and what could invalidate it: planar motion, fixed reference, local linear effectiveness, no trim or damping.
 
 **Student response:**
-```
-For planar motion ,assumes motion is strictly 2D (pitching about the body Y-axis only)and what could invalidates is are Roll or yaw inputs.
-```
+_Missing — no response supplied._
 
 ### model
 **Prompt:** Write your demand, dynamic-pressure, coefficient and moment equations. Identify which quantities are supplied and which are unknown.
 
 **Student response:**
-```
-Demand: Iy*target - competing
-q : 0.5*density*v^2
-Cm : M / q*s*c
-Moment equation: M=Cm*q*s*c
-
-```
+_Missing — no response supplied._
 
 ### prediction
 **Prompt:** Before running your own implementation, predict the sign of its elevator moment and the effect of halving airspeed. Explain the competing moment.
 
 **Student response:**
-```
-Elevator moment : positive because it nose-up.Effect  of having airspeed : Moment generate from the elevator is proportional to v^2.
-```
+_Missing — no response supplied._
 
 ### verification
 **Prompt:** Show one independent hand calculation with units. Compare it with your model, and explain a sign, unit, or limiting-case check.
@@ -97,7 +87,7 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
 ```
 {
   "schemaVersion": "week07.student-model/v1",
-  "id": "week07.student.implementation",
+  "id": "week07-student-model",
   "version": "1.0.0",
   "slots": [
     {
@@ -105,7 +95,7 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "requiredMoment",
-          "expression": "pitchInertia * requestedAcceleration - competingMoment",
+          "expression": "",
           "unit": "N*m"
         }
       ]
@@ -115,17 +105,17 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
       "expressions": [
         {
           "name": "dynamicPressure",
-          "expression": "0.5 * density * airspeed * airspeed",
+          "expression": "",
           "unit": "Pa"
         },
         {
           "name": "deltaCm",
-          "expression": "elevatorDerivative * elevatorAngle",
+          "expression": "",
           "unit": "1"
         },
         {
           "name": "deltaMoment",
-          "expression": "dynamicPressure * referenceArea * referenceChord * deltaCm",
+          "expression": "",
           "unit": "N*m"
         }
       ]
@@ -136,25 +126,11 @@ The recorded model JSON/expression source follows exactly as supplied. It is not
 
 ## Recorded verification status
 
-Recorded as passed for the submitted model hash.
-
-- Checked at: 2026-09-17T04:05:10.677Z
-- Detail: Student artifact passed demand, baseline elevator, quadratic speed, and neutral-deflection checks.
+No verification record was supplied.
 
 ## Recorded model runs
 
-### Run 1
-- Recorded: 2026-09-17T04:05:12.895Z
-- Run ID: 97083140-4542-4a91-932c-27cdd1dcc1b5
-- Record revision: 810
-- Model hash recorded with run: fnv1a-997b93ba
-- Prediction recorded with run:
-
-```
-Elevator moment : positive because it nose-up.Effect  of having airspeed : Moment generate from the elevator is proportional to v^2.
-```
-- Result status: recorded values shown below
-- Values: `requiredMoment=1350 N*m`; `dynamicPressure=980 Pa`; `deltaCm=0.06981317007977318 1`; `deltaMoment=1642.0057602762652 N*m`
+_Missing — no model runs supplied._
 
 ## Submission instructions
 
